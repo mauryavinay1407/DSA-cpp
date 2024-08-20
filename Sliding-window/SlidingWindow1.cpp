@@ -1,50 +1,37 @@
-public class Solution {
-    public List<Integer> slidingWindowTemplateByHarryChaoyangHe(String s, String t) {
-        //init a collection or int value to save the result according the question.
-        List<Integer> result = new LinkedList<>();
-        if(t.length()> s.length()) return result;
-        
-        //create a hashmap to save the Characters of the target substring.
-        //(K, V) = (Character, Frequence of the Characters)
-        Map<Character, Integer> map = new HashMap<>();
-        for(char c : t.toCharArray()){
-            map.put(c, map.getOrDefault(c, 0) + 1);
+class Solution {
+public:
+        list<int> slidingWindowTemplate(const string &s, const string &t) {
+        list<int> result;
+        if(t.length() > s.length()) return result;
+
+        unordered_map<char, int> map;
+        for(char c : t) {
+            map[c] = map.count(c) ? map[c] + 1 : 1;
         }
-        //maintain a counter to check whether match the target string.
-        int counter = map.size();//must be the map size, NOT the string size because the char may be duplicate.
+        int counter = map.size();
         
-        //Two Pointers: begin - left pointer of the window; end - right pointer of the window
         int begin = 0, end = 0;
+        int len = INT_MAX;
         
-        //the length of the substring which match the target string.
-        int len = Integer.MAX_VALUE; 
-        
-        //loop at the begining of the source string
-        while(end < s.length()){
+        while(end < s.length()) {
+            char c = s[end];
             
-            char c = s.charAt(end);//get a character
-            
-            if( map.containsKey(c) ){
-                map.put(c, map.get(c)-1);// plus or minus one
-                if(map.get(c) == 0) counter--;//modify the counter according the requirement(different condition).
+            if(map.count(c)) {
+                map[c]--;
+                if(map[c] == 0) counter--;
             }
             end++;
             
-            //increase begin pointer to make it invalid/valid again
-            while(counter == 0 /* counter condition. different question may have different condition */){
-                
-                char tempc = s.charAt(begin);//***be careful here: choose the char at begin pointer, NOT the end pointer
-                if(map.containsKey(tempc)){
-                    map.put(tempc, map.get(tempc) + 1);//plus or minus one
-                    if(map.get(tempc) > 0) counter++;//modify the counter according the requirement(different condition).
+            while(counter == 0) {
+                char tempc = s[begin];
+                if(map.count(tempc)) {
+                    map[tempc]++;
+                    if(map[tempc] > 0) counter++;
                 }
-                
-                /* save / update(min/max) the result if find a target*/
-                // result collections or result int value
                 
                 begin++;
             }
         }
         return result;
     }
-}
+};
