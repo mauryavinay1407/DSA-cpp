@@ -25,8 +25,8 @@ public:
             while(counter == 0) {
                 char tempc = s[begin];
                 if(map.count(tempc)) {
+                    if(map[tempc] == 0) counter++;
                     map[tempc]++;
-                    if(map[tempc] > 0) counter++;
                 }
                 
                 begin++;
