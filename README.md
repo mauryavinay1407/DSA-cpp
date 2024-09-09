@@ -1,2 +1,2 @@
-# cpp-templates
-This contains important dsa lc templates. 
+# DSA CPP
+This contains important dsa questions and templates.
