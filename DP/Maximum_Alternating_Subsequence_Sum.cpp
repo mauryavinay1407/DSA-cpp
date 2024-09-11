@@ -24,7 +24,7 @@ public:
 };
 
 /*
-Approach:1 (Recursion + Memoization)
+Approach:2 (Recursion + Memoization)
 Time: O(n)
 Space: O(n)
 */
