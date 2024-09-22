@@ -45,13 +45,14 @@ public:
         unordered_map<int,int> mp;
         int i=0,j=0;
         int maxLen=INT_MIN;
-        for(int i=0;i<nums.size();i++){
-            for(int j=i;j<nums.size();j++){
-                mp[nums[j]]++;
-                while(mp[nums[i]]>k)
-
-                maxLen=max(maxLen,j-i+1);
-            }
+        while(j<nums.size()){
+          mp[nums[j]]++;
+          while(mp[nums[j]]>k){
+            mp[nums[i]]--;
+            i++;
+          }
+          maxLen=max(maxLen,j-i+1);
+          j++;
         }
         return maxLen;
     }
