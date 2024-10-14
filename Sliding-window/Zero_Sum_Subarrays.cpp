@@ -43,12 +43,10 @@ public:
         for(int i=0;i<n;i++){
             sum+=arr[i];
             
-            if(mp.count(sum)){
+            if(mp.count(sum))
                 count+=mp[sum];
-                mp[sum]++;
-            }
-            else
-             mp[sum]=1;
+               
+            mp[sum]++;
         }
         return count;
     }
