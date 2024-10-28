@@ -8,23 +8,24 @@ Space Complexity: O(N^2)
 
 class Solution {
 public:
-    int maxWidthRamp(vector<int>& nums) {
-        int maxWidth = 0;
-        int n = nums.size();
-        vector<int> maxToRight(n, 0);
-        maxToRight[n - 1] = nums[n - 1];
-        for (int i = n - 2; i >= 0; i--) {
-            maxToRight[i] = max(maxToRight[i + 1], nums[i]);
-        }
-        int i = 0, j = 0;
-        while (i < n && j < n) {
-            while (j < n && nums[i] <= maxToRight[j]) {
-                maxWidth = max(maxWidth, j - i);
-                j++;
-            }
-            i++;
-        }
-        return maxWidth;
+    int dp[2501][2501];
+    int findLengthOfLIS(vector<int>& nums, int i, int mini) {
+        if (i == nums.size())
+            return 0;
+        if (mini != -1 && dp[i][mini] != -1)
+            return dp[i][mini];
+        int take = 0;
+        if (mini == -1 || nums[mini] < nums[i])
+            take = 1 + findLengthOfLIS(nums, i + 1, i);
+
+        int skip = findLengthOfLIS(nums, i + 1, mini);
+        if (mini != -1)
+            dp[i][mini] = max(take, skip);
+        return max(take, skip);
+    }
+    int lengthOfLIS(vector<int>& nums) {
+        memset(dp, -1, sizeof(dp));
+        return findLengthOfLIS(nums, 0, -1);
     }
 };
 
