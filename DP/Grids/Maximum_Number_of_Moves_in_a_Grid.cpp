@@ -1,7 +1,7 @@
 // problem:  https://leetcode.com/problems/maximum-number-of-moves-in-a-grid/description/
 
 /*
-Approach-1:  Recursion + Memoization
+Approach-1:  Recursion + Memoization            (without memoization, it would take O(m*3^n)
 Time Complexity:   O(M*N)
 Space Complexity:  O(M*N)
 */
@@ -66,6 +66,42 @@ public:
                     result = max(result, dp[i][j]);
             }
         }
+        return result;
+    }
+};
+
+/*
+Approach-2: DFS + Caching(Memoization)
+Time Complexity:   O(M*N)
+Space Complexity:  O(M*N)
+*/
+class Solution {
+public:
+    int m, n;
+
+    vector<vector<int>> directions{{-1, 1},{0, 1},{1,1,}};
+    bool isValid(int i, int j) {
+        return (i >= 0 && i < m && j >= 0 && j < n); 
+        }
+    int DFS(vector<vector<int>>& grid, int i, int j, vector<vector<int>>& dp) {
+        if (dp[i][j] != -1)
+            return dp[i][j];
+        int moves = 0;
+        for (auto& dir : directions) {
+            int new_i = i + dir[0];
+            int new_j = j + dir[1];
+            if (isValid(new_i, new_j) && (grid[i][j] < grid[new_i][new_j]))
+                moves = max(moves, 1 + DFS(grid, new_i, new_j, dp));
+        }
+        return dp[i][j] = moves;
+    }
+    int maxMoves(vector<vector<int>>& grid) {
+        m = grid.size();
+        n = grid[0].size();
+        vector<vector<int>> dp(m, vector<int>(n, -1));
+        int result = 0;
+        for (int i = 0; i < m; i++)
+            result = max(result, DFS(grid, i, 0, dp));
         return result;
     }
 };
