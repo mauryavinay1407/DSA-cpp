@@ -33,7 +33,7 @@ public:
 };
 
 /*
-Approach-2: Using patience (three pass)
+Approach-2: Using patience sorting(three pass)
 Time Complexity:    O(N*logN)
 Space Complexity:   O(N)
 */
