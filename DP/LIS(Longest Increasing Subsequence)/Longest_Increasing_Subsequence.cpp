@@ -51,3 +51,43 @@ public:
         return result;
     }
 };
+
+/*
+Approach-3: Using Binary Search (Patience sorting)    (i.e internally use b_search bcuz lower/bound takes logn time to search)
+Time Complexity:       O(N*logN)
+Space Complexity:      O(N)
+*/
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        vector<int> sortedArr;
+        for(auto& num : nums){
+            auto lb = lower_bound(sortedArr.begin(),sortedArr.end(),num);
+            if(lb==sortedArr.end())
+                sortedArr.push_back(num);
+            else
+                *lb = num;
+        }
+        return sortedArr.size();
+    }
+};
+
+/*
+Approach-4:  using same but in place (Most optimal)
+Time Complexity:       O(N*logN)
+Space Complexity:      O(1)
+*/
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int len = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            int j = lower_bound(nums.begin(), nums.begin() + len, nums[i]) -
+                    nums.begin();
+            if (j == len)
+                len++;
+            nums[j] = nums[i];
+        }
+        return len;
+    }
+};
