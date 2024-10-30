@@ -1,4 +1,4 @@
-# [Minimum Number of Removals to Make Mountain Array](https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array)
+// problem :  https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array
 
 /*
 Approach-1: Using Longest Increasing Subsequence from left and right (three pass)
