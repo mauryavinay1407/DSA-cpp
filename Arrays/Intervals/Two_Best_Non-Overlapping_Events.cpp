@@ -46,3 +46,43 @@ public:
         return result;
     }
 };
+/*
+Approach-3:  Using Binary search and Dynamic Programming
+Time Complexity    :  O(N*logN)
+Space Complexity   :  O(N)
+*/
+class Solution {
+public:
+    int dp[100001][3];
+    int Binary_search(vector<vector<int>>& events, int end) {
+        int l = 0;
+        int h = events.size() - 1;
+        int result = events.size();
+        while (l <= h) {
+            int mid = l + (h - l) / 2;
+            if (events[mid][0] > end) {
+                result = mid;
+                h = mid - 1;
+            } else
+                l = mid + 1;
+        }
+        return result;
+    }
+    int findMax(vector<vector<int>>& events, int i, int count) {
+        if (i >= events.size() || count == 2)
+            return 0;
+        if (dp[i][count] != -1)
+            return dp[i][count];
+
+        int Index = Binary_search(events, events[i][1]);
+        int taken = events[i][2] + findMax(events, Index, count + 1);
+        int skip = findMax(events, i + 1, count);
+
+        return dp[i][count] = max(taken, skip);
+    }
+    int maxTwoEvents(vector<vector<int>>& events) {
+        sort(events.begin(), events.end());
+        memset(dp, -1, sizeof(dp));
+        return findMax(events, 0, 0);
+    }
+};
