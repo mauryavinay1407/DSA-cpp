@@ -39,3 +39,24 @@ public:
        return maxDia;
     }
 };
+
+// OR doing without global variable ( recommended)
+
+class Solution {
+public:
+    int diameter(TreeNode* root,int& result) {
+        if (!root)
+            return 0;
+        int left = diameter(root->left,result);
+        int right = diameter(root->right,result);
+        result = max(result, left + right);
+        return 1 + max(left, right);
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        if (!root)
+            return 0;
+        int result = INT_MIN;
+        diameter(root,result);
+        return result;
+    }
+};
