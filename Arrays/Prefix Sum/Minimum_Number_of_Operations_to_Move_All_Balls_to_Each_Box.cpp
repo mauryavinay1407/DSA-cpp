@@ -94,3 +94,68 @@ public:
         return result;
     }
 };
+/*
+Approach-4 :  Optimal (beginner friendly) using Prefix Sum
+Time Complexity    : O(n)
+Space Complexity   : O(1)
+*/
+class Solution {
+public:
+    vector<int> minOperations(string boxes) {
+        int n = boxes.size();
+
+        vector<int> answer(n, 0);
+
+        int cumValue    = 0;
+        int cumValueSum = 0;
+
+        //Find moves for all left balls to index i
+        //O(n)
+        for(int i = 0; i < n; i++) {
+            answer[i] = cumValueSum;
+            
+            cumValue += boxes[i] == '0' ? 0 : 1;
+            
+            cumValueSum += cumValue;
+        }
+
+        cumValue    = 0;
+        cumValueSum = 0;
+        //Find moves for all right balls to index i
+        //O(n)
+        for(int i = n-1; i >= 0; i--) {
+            answer[i] += cumValueSum;
+            
+            cumValue += boxes[i] == '0' ? 0 : 1;
+            
+            cumValueSum += cumValue;
+        }
+
+        //O(n+n) ~ O(n)
+        return answer;
+
+    }
+};
+
+/*
+Approach-5 :  Optimal (ultra) using Prefix Sum
+Time Complexity    : O(n)
+Space Complexity   : O(1)
+*/
+class Solution {
+public:
+    vector<int> minOperations(string boxes) {
+    vector<int> res(boxes.length()); 
+    for (int i = 0, ops = 0, cnt = 0; i < boxes.length(); ++i) {
+       res[i] += ops;
+       cnt += boxes[i] == '1' ? 1 : 0;
+       ops += cnt;
+    }
+    for (int i = boxes.length() - 1, ops = 0, cnt = 0; i >= 0; --i) {
+        res[i] += ops;
+        cnt += boxes[i] == '1' ? 1 : 0;
+        ops += cnt;
+    }
+    return res;
+}
+};
