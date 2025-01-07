@@ -50,7 +50,7 @@ class Solution {
     }
 };
 /*
-Approach-1: Optimal using two pointer
+Approach-3: Optimal using two pointer
 Time Complexity    :  O(N^2)
 Space Complexity   :  O(1)
 */
