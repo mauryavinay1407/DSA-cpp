@@ -40,3 +40,42 @@ class Solution {
         return temp1==temp2 ? temp1->data : -1 ;
     }
 };
+
+/*
+Approach-3: Optimal solution by reducing the length of longer list to same as shorter then comparing and finding the intersection
+Time Complexity:  O(M + N)
+Space Complexity   O(1)
+*/
+class Solution {
+public:
+Node* intersectPoint(Node* head1, Node* head2) {
+        Node* temp1 = head1;
+        Node* temp2 = head2;
+        int n1 = 0, n2 = 0;
+        while (temp1) {
+            n1++;
+            temp1 = temp1->next;
+        }
+        while (temp2) {
+            n2++;
+            temp2 = temp2->next;
+        }
+        temp1 = head1, temp2 = head2;
+        if (n1 > n2) {
+            int k = n1 - n2;
+            while (k--)
+                temp1 = temp1->next;
+        } else if (n2 > n1) {
+            int k = n2 - n1;
+            while (k--)
+                temp2 = temp2->next;
+        }
+        while (temp1 && temp2) {
+            if (temp1 == temp2)
+                return temp1;
+            temp1 = temp1->next;
+            temp2 = temp2->next;
+        }
+        return NULL;
+    }
+};
