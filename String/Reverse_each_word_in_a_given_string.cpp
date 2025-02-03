@@ -63,3 +63,33 @@ public:
         return result;
     }
 };
+
+/*
+Approach-3 : clean and optimized approach
+Time Complexity  :    O(N)
+Space Complexity :    O(W) where W ~ n = length of a word 
+*/
+
+class Solution {
+public:
+    string reverseWords(string &s) {
+    string result;
+    int n = s.length(), i = 0;
+
+    while (i < n) {
+        // Skip leading spaces
+        while (i < n && s[i] == ' ') i++;  
+        if (i >= n) break;
+
+        // Capture a word and reverse it
+        string word;
+        while (i < n && s[i] != ' ') word += s[i++];
+        reverse(word.begin(), word.end());
+
+        // Add to result with a space
+        if (!result.empty()) result += ' ';
+        result += word;
+    }
+    return result;
+   }
+};
