@@ -72,3 +72,57 @@ public:
         return result;
     }
 };
+/*
+Approach-3: better using hashmap(no extra array for storing number of digits)
+Time Complexity    : O(n*m), m = number of digits
+Space Complexity   : O(n)
+*/
+class Solution {
+public:
+    int maximumSum(vector<int>& nums) {
+        unordered_map<int, int> mp;
+        int result = -1;
+        for (auto& num : nums) {
+            int temp = num;
+            long long sum = 0;
+            while (temp) {
+                int t = temp % 10;
+                sum += t;
+                temp /= 10;
+            }
+            if (mp.count(sum)) {
+                result = max(result, num + mp[sum]);
+            }
+            mp[sum] = max(mp[sum], num);
+        }
+
+        return result;
+    }
+};
+/*
+Approach-4: optimal using array as map of constant size               ,from constraints 10^9  = max can be 999999999 so from 0 to 9+9+9+9+9+9+9+9+9 = 82  
+Time Complexity    : O(n*m), m = number of digits
+Space Complexity   : O(1)
+*/
+class Solution {
+public:
+    int maximumSum(vector<int>& nums) {
+        int mp[82] = {0};
+        int result = -1;
+        for (auto& num : nums) {
+            int temp = num;
+            long long sum = 0;
+            while (temp) {
+                int t = temp % 10;
+                sum += t;
+                temp /= 10;
+            }
+            if (mp[sum] > 0) {
+                result = max(result, num + mp[sum]);
+            }
+            mp[sum] = max(mp[sum], num);
+        }
+
+        return result;
+    }
+};
