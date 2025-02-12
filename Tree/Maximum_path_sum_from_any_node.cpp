@@ -9,10 +9,12 @@ class Solution {
   public:
     int solve(Node* root,int &ans){
         if(root==NULL) return 0;
-        int left=solve(root->left,ans);
-        int right=solve(root->right,ans);
-        int temp=max(0,max(left,right));
-        ans=max(ans,max(root->data+left+right ,root->data+temp));
+        int left = max(0,solve(root->left,ans));
+        int right = max(0,solve(root->right,ans));
+        
+        ans = max(ans,root->data + left + right);
+        
+        return root->data + max(left,right);
         
         return root->data + temp;
     }
