@@ -1,0 +1,27 @@
+// problem   :  https://leetcode.com/problems/count-the-hidden-sequences
+
+/*
+Approach - Using simple maths
+Time Complexity      :  O(N)
+Space Complexity     :  O(1)
+*/
+class Solution {
+public:
+    int numberOfArrays(vector<int>& differences, int lower, int upper) {
+        int currentValue = 0;
+        int minValue = 0;
+        int maxValue = 0;
+
+        for (auto& d : differences) {
+            currentValue += d;
+
+            minValue = min(minValue, currentValue);
+            maxValue = max(maxValue, currentValue);
+
+            if ((upper - maxValue) - (lower - minValue) + 1 <= 0) {
+                return 0;
+            }
+        }
+        return (upper - maxValue) - (lower - minValue) + 1;
+    }
+};
