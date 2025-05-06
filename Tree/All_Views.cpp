@@ -30,7 +30,38 @@ vector<int> leftView(Node *root)
    }
    return result;
 }
+// alternative for left view
 
+/*
+Time Complexity       : O(N)
+Space Complexity      : O(W)  W = size of queue
+*/
+class Solution {
+  public:
+    vector<int> leftView(Node *root) {
+        if(!root){
+            return {};
+        }
+        queue<Node*> q;
+        q.push(root);
+        vector<int> result;
+        while(!q.empty()){
+            result.push_back(q.front()->data);
+            int k = q.size();
+            while(k--){
+                Node* temp = q.front();
+                q.pop();
+                if(temp->left){
+                    q.push(temp->left);
+                }
+                if(temp->right){
+                    q.push(temp->right);
+                }
+            }
+        }
+        return result;
+    }
+};
 
 /*Right Side View of a Binary Tree */
 
