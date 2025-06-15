@@ -1,7 +1,7 @@
 // problem : https://leetcode.com/problems/minimize-the-maximum-difference-of-pairs
 
 /*
-Approach - Using Binary search
+Approach - Using Binary search + Greedy
 Time Complexity        :    O(N*LogN + N*LogD)
 Space Complexity       :    O(1)
 */
