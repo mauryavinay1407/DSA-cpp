@@ -92,3 +92,41 @@ public:
         return result;
     }
 };
+
+/*
+Approach-4 : optimal using nth_element function c++
+Time Complexity     :  O(n + k)
+Space Complexity    :  O(n)
+*/
+class Solution {
+public:
+    vector<int> maxSubsequence(vector<int>& nums, int k) {
+        if (nums.size() == k)
+            return nums;
+
+        vector<int> temp = nums;
+
+        // Use nth_element to put the k largest elements in the first k positions (unordered)
+        nth_element(temp.begin(), temp.begin() + (k - 1), temp.end(),greater<int>());
+
+        // Count how many times kth largest appears in top k elements
+        int countLimit = count(temp.begin(), temp.begin() + k, temp[k - 1]);
+
+        vector<int> result;
+        int limit = temp[k - 1];
+
+        for (int i = 0; i < nums.size(); i++) {
+            if (limit < nums[i]) {
+                result.push_back(nums[i]);
+            } else if (limit == nums[i]) {
+                if (countLimit) {
+                    result.push_back(nums[i]);
+                    countLimit--;
+                }
+            }
+            if (result.size() == k)
+                break;
+        }
+        return result;
+    }
+};
