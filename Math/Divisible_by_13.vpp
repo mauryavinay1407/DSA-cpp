@@ -1,0 +1,22 @@
+// problem : https://www.geeksforgeeks.org/problems/divisible-by-13/1
+
+/*
+Approach - Using simple simulation
+Time Complexity     : O(N)
+Space Complexity    : O(1)
+*/
+class Solution {
+public:
+    bool divby13(string &s) {
+        int n = s.length();
+        if(n < 2) return false ;
+        int num = s[0]-'0';
+        for (int i = 1 ; i < n ; i++){
+            num *= 10;
+            num += (s[i]-'0');
+            num %= 13;
+        }
+        
+        return num == 0;
+    }
+};
