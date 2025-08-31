@@ -1,7 +1,8 @@
 // problem : https://leetcode.com/problems/shifting-letters
 
+
 /*
-Approach-1 : Brute Force (TLE)
+Approach-1 : Brute Force (Time Limit Exceed)
 Time Complexity   :  O(N*N)
 Space Complexity  :  O(N)
 */
