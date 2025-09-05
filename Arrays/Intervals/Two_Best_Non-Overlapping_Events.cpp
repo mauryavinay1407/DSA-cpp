@@ -1,7 +1,7 @@
 // problem:  https://leetcode.com/problems/two-best-non-overlapping-events
 
 /*
-Approach-1:  Brute force (TLE)
+Approach-1:  Brute force (Time Limit Exceed)
 Time Complexity    :  O(N^2)
 Space Complexity   :  O(1)
 */
