@@ -1,6 +1,7 @@
 // problem:  https://www.geeksforgeeks.org/problems/split-singly-linked-list-alternatingly/1
 
 /*
+Approach  :    Using simple iteration and pointer
 Time Complexity: O(N)
 Space Complexity: O(1)
 */
