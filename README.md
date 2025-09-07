@@ -1,2 +1,2 @@
 # DSA CPP
-This contains important dsa questions and templates.
+This contains important DSA questions and templates.
