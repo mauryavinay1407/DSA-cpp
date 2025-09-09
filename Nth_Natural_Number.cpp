@@ -1,7 +1,7 @@
 /*
 Time: O(logN)
 Space: O(1)
-Approach: To find the `n`th number, consider that skipping the digit `9` resembles a base system operation:
+Approach: To find the nth number, consider that skipping the digit `9` resembles a base system operation:
 
 -   If you think about numbers in base 10, they include digits `0-9`.
 -   If you remove the digit `9`, you're left with `0-8`, resembling a base-9 number system.
