@@ -1,2 +1,2 @@
 # DSA CPP
-This contains important DSA questions and templates.
+Comprehensive collection of key Data Structures & Algorithms problems, daily practice (POTD), and reusable templates for coding interviews
