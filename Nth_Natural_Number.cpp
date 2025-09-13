@@ -11,14 +11,14 @@ Approach: To find the nth number, consider that skipping the digit `9` resembles
   class Solution {
   public:
     long long findNth(long long n) {
-    long long ans=0;
-    long long base=1;
+        long long ans=0;
+        long long base=1;
     
-    while(n>0){
-        ans+=(n%9)*base;
-        n/=9;
-        base*=10;
-    }
-    return ans;
+        while(n>0){
+           ans+=(n%9)*base;
+           n/=9;
+           base*=10;
+        }
+        return ans;
     }
 };
