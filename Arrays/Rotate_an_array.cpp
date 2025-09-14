@@ -1,6 +1,8 @@
 // problem:  https://leetcode.com/problems/rotate-array/
 
-//Approach-1 (Writing own reversal function)
+/*
+Approach-1 (Writing own reversal function)
+*/
 class Solution {
 public:
     void reverse(vector<int>& nums, int start, int end){
