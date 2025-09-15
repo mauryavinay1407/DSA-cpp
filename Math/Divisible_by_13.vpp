@@ -1,7 +1,7 @@
 // problem : https://www.geeksforgeeks.org/problems/divisible-by-13/1
 
 /*
-Approach - Using simple simulation
+Approach - Using simple simulation and for loop
 Time Complexity     : O(N)
 Space Complexity    : O(1)
 */
