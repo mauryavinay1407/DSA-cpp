@@ -18,7 +18,6 @@ public:
         }
     };
     vector<int> printKClosest(vector<int> arr, int k, int x) {
-        // Code here
         priority_queue<P,vector<P>,comparator> maxHeap;
         
         for(int i=0;i<arr.size();i++){
