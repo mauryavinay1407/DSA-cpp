@@ -2,7 +2,7 @@
 
 
 /*
-Approach-2: using min heap
+Approach-1: using min heap
 Time Complexity: O(n*logk)
 Space Complexity: O(k)
 */
