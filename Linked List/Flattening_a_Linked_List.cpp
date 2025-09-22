@@ -35,7 +35,6 @@ Space Complexity   :  O(1)
 */
 class Solution {
 public:
-    // Function to merge two sorted linked lists iteratively
     Node* mergeSortedList(Node* list1, Node* list2) {
         Node dummy(0); // Dummy node to simplify handling
         Node* tail = &dummy;
