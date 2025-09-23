@@ -1,7 +1,7 @@
 // problem : https://leetcode.com/problems/longest-nice-subarray
 
 /*
-Approach- Using sliding window
+Approach- using sliding window
 Time Complexity:   O(N)
 Space Complexity:  O(1)
 */
