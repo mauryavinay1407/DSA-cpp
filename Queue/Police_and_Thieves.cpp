@@ -1,7 +1,7 @@
 // problem  :  https://www.geeksforgeeks.org/problems/police-and-thieves--141631/1
 
 /*
-Approach - Using Queue + Greedy algorithm
+Approach - Using Queue + greedy algorithm
 Time Complexity       :   O(N)
 Space Complexity      :   O(N)
 */
