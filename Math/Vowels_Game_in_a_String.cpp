@@ -20,7 +20,6 @@ public:
     }
 };
 
-
 /*
 Approach-2 Using one liner STL
 Time Complexity  : O(n)
