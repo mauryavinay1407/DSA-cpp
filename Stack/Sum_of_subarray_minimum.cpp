@@ -19,6 +19,7 @@ public:
         return result;
     }
 };
+
 /*
 Approach-2: Using the concept that a number will be involved in x * (m + 1) * (n + 1) subarray where m = no of elements <= x in left and n = no of elements <= x in right
 Time Complexity       :  O(N)
