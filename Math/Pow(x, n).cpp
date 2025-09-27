@@ -1,7 +1,8 @@
 // problem: https://leetcode.com/problems/powx-n/description/
 
-// Approach-1: Brute Force 
-
+/*
+Approach-1: Brute Force 
+*/
 class Solution {
 public:
 double myPow(double x, int n) {
@@ -22,8 +23,9 @@ double myPow(double x, int n) {
     }
 };
 
-// Approach-2: Optimal solution
-
+/*
+Approach-2: Optimal solution
+*/
 class Solution {
 public:
     double findPow(double x,long n){
