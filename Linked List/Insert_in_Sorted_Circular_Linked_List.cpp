@@ -9,7 +9,7 @@ Space Complexity      :  O(1)
 class Solution {
   public:
     Node* sortedInsert(Node* head, int data) {
-        // code here
+        
          Node* newNode = new Node(data); 
     
         // If linked list is empty
