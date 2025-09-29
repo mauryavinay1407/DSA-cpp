@@ -2,8 +2,8 @@
 
 /*
 Approach - Using hash map or set
-Time Complexity       : 
-Space Complexity      : 
+Time Complexity       :  O(n) 
+Space Complexity      :  O(n) 
 */
 
 class Solution {
