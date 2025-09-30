@@ -3,8 +3,8 @@
 
 /*
 Approach-1 : Using recursion
-Time Complexity   :  O(2^n * target)
-Space Complexity  :  O(target)
+Time Complexity   :  O(2^n * k)
+Space Complexity  :  O(k)     where k = target
 */
 class Solution {
 public:
