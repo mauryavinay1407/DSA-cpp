@@ -1,7 +1,7 @@
 // problem : https://www.geeksforgeeks.org/problems/balancing-consonants-and-vowels-ratio/1
 
 /*
-Approach - Using prefix sum with hashing
+Approach - Using prefix sum with hashmap
 Time Complexity       :  O(N)
 Space Complexity      :  O(N)
 */
