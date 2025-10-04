@@ -1,6 +1,5 @@
 // problem : https://www.geeksforgeeks.org/problems/merge-k-sorted-linked-lists/1
 
-
 /*
 Approach :  Using min-heap
 Time Complexity     : O(N*logk) 
@@ -8,7 +7,7 @@ Space Complexity    : O(k)
 */
 class Solution {
   public:
-static bool cmp(Node *first, Node *second)
+    static bool cmp(Node *first, Node *second)
     {
         return first->data > second->data;
     }
